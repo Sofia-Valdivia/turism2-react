@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.center {
+  text-align: center;
+}
+
+.card-tour {
+  max-width: 600px;
+  min-height: 650px;
+  max-height: 650px;
+}
+
+.img-tour {
+  min-height: 400px;
+  max-height: 400px;
+  object-fit: contain !important;
+  margin-top: 20px;
+}
+
+
