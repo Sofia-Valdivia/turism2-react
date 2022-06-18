@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import {Container, Card, CardContent, CardMedia, Grid} from "@mui/material";
+import {Container, Card, CardContent, CardMedia, Grid, Button} from "@mui/material";
 import { getDataFromTour } from "../../service";
 import TourDetail from "../../components/TourDetail";
 
+
 const Home = () => {
 
-    
+   
+      
 
     const [tours,setTours] = useState([]);
 
@@ -35,10 +37,12 @@ const Home = () => {
                 image={tours.tour_foto}
                 />
                 <CardContent className="center">
-                <h2>{tours.tour_nombre}</h2>
+                <h2>{tours.tour_nombre}</h2> 
+
                 <TourDetail
                  itinerario={tours.tour_itinerario} 
-                 precio={tours.tour_precio}
+                 precio={tours.tour_precio} 
+                 tours= {tours}                
                  />
                 
                 </CardContent>

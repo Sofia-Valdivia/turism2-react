@@ -1,0 +1,12 @@
+
+
+.container-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+}
+.button-basket{
+  text-transform: capitalize !important;  
+}

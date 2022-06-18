@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Button, Dialog, DialogContent } from "@mui/material";
+import "./index.css";
+import { UserContext } from "../../Context/UserContext";
 
-const TourDetail = (props) => {
+const TourDetail = ({tours, itinerario, precio}) => {
+
+  const {storeBasket} = useContext(UserContext);
+
   const [open, setOpen] = useState(false);
 
   const handleOpenDialog = () => setOpen(!open);
@@ -14,13 +19,18 @@ const TourDetail = (props) => {
         </Button>
         <Dialog open={open} onClose={handleOpenDialog}>
         <DialogContent>
-        <h4>Detalle del Tour</h4>
-        
+        <h4>Detalle del Tour</h4>        
         <h3>Itinerario: </h3>
-        <p>{props.itinerario}</p>
+        <p>{itinerario}</p>
         <h3>Precio: </h3>
-        <p>{props.precio}</p>
-        <Button onClick={handleOpenDialog}>Cerrar</Button>
+        <p>{precio}</p>
+        <p className="container-buttons">
+        <Button onClick={() => 
+        storeBasket(tours)        
+        
+        }  className="button-basket" variant="contained" color="primary">+ Add to basket</Button>
+        <Button className="button-basket" onClick={handleOpenDialog} variant="contained" color="secondary">Cerrar</Button>
+        </p>
         </DialogContent>
         </Dialog> 
 

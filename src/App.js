@@ -1,21 +1,14 @@
-import { useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Router from "./router"
+import { UserProvider } from "./Context/UserContext";
 
-
-const PrimerComponente = () => {
-
-  const [count,setCount]=useState(10);
-
-  return (
-    <div>
-      <Header/>
-      <h2>A plasmar lo aprendido!{count}</h2>
-      <Footer/>
-    </div>
-  );
-
+const App = () => {
+    return (
+        <UserProvider>
+        <div>
+            <Router/>
+        </div>
+        </UserProvider>
+    );
 };
 
-export default PrimerComponente;
-
+export default App;
