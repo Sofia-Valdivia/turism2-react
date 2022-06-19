@@ -7,15 +7,23 @@ export const UserProvider = (props) => {
     const [basket,setBasket]= useState(JSON.parse(localStorage.getItem("basket")) ?? []
     );
 
-    const storeBasket = (product) => {
+    {/*const storeBasket = (product) => {
         const dataToStorage = [...basket,product];
-        setBasket( dataToStorage);
-           
+        setBasket( dataToStorage);          
 
         localStorage.setItem("basket", JSON.stringify(dataToStorage));
+    };*/}
+    const storeBasket = (product) =>{
+        setBasket([...basket,product]);
+        localStorage.setItem("basket",JSON.stringify([...basket,product]));
+    }
+
+    const deleteElementFromBasket = (id)=> {
+        const productIndex = basket.findIndex((bas)=> bas.id === id);
+        const newBasket = basket.splice(productIndex, 1);
+        setBasket(newBasket);
+        localStorage.setItem("basket",JSON.stringify(newBasket));
     };
-
-
 
 
     return <UserContext.Provider value={{basket,storeBasket}}>

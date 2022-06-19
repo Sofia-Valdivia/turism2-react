@@ -8,5 +8,15 @@
     
 }
 .button-basket{
-  text-transform: capitalize !important;  
+  text-transform: capitalize !important; 
+  display: flex ;
+  margin-left: auto;
+  margin-top: auto;    
+}
+
+.button-basket-detalle{
+  text-transform: capitalize !important; 
+  display: flex ;
+  margin-left: auto;
+  margin-top: auto;  ;
 }
