@@ -3,11 +3,12 @@ import {Container, Card, CardContent, CardMedia, Grid, Button} from "@mui/materi
 import { getDataFromTour } from "../../service";
 import TourDetail from "../../components/TourDetail";
 import { UserContext } from "../../Context/UserContext";
+import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 
 
 const Home = () => {   
      
-    const {basket, storeBasket} = useContext(UserContext);
+    const {basket, storeBasket,deleteElementFromBasket} = useContext(UserContext);
 
     const [tours,setTours] = useState([]);
 
@@ -20,14 +21,20 @@ const Home = () => {
     };
 
     const ButtonForProduct = ({ tours })=> {
-    const findProduct = basket.find((bas)=> bas.id === tours.id);
+    const findProduct = basket.find((bas)=> bas.tour_id === tours.tour_id);
   
       return (
         <>
         { findProduct ? (
-            <button>Delete</button>
+            <Button
+            onClick={()=> deleteElementFromBasket(tours.tour_id)}
+            className="button-basket" 
+            variant="contained" 
+            color="error">Delete<DeleteForeverRoundedIcon/>
+            </Button>
           ) : (
-            <Button onClick={() => 
+            <Button 
+            onClick={() => 
             storeBasket(tours)         
             } 
             className="button-basket" 
@@ -58,9 +65,9 @@ const Home = () => {
                 />
                 <CardContent className="center">
                 <h2>{tours.tour_nombre}</h2> 
-               {/*<p>
+               <p>
                <ButtonForProduct tours={tours}/>
-                </p> */}
+            </p> 
 
                 <TourDetail
                  itinerario={tours.tour_itinerario} 

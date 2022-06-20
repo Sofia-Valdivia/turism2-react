@@ -10,13 +10,11 @@
 .button-basket{
   text-transform: capitalize !important; 
   display: flex ;
-  margin-left: auto;
-  margin-top: auto;    
+  justify-content: center;  
 }
 
 .button-basket-detalle{
   text-transform: capitalize !important; 
   display: flex ;
-  margin-left: auto;
-  margin-top: auto;  ;
+  justify-content: center;
 }
