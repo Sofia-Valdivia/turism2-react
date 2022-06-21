@@ -9,6 +9,8 @@ export const UserProvider = (props) => {
 
     
     const storeBasket = (product) =>{
+
+        product.quantity = 1;
         setBasket([...basket,product]);
         localStorage.setItem("basket",JSON.stringify([...basket,product]));
     }
@@ -19,7 +21,26 @@ export const UserProvider = (props) => {
         localStorage.setItem("basket",JSON.stringify(products));
     };
 
+    const addOrRemoveProduct = (tour_id,add) => {
+        const products = basket.map((product)=> {
+            if (product.tour_id ===tour_id){
+                if(add){
+                    product.quantity += 1;
+                } else {
+                  if (product.quantity > 1){
+                    product.quantity -= 1;
+                  }
+                }
+            }
+            return {
+                ...product,
+            };
+        });
+        setBasket(products);
+        localStorage.setItem("basket",JSON.stringify(products));
+    };
 
-    return <UserContext.Provider value={{basket,storeBasket,deleteElementFromBasket}}>
+
+    return <UserContext.Provider value={{basket,storeBasket,deleteElementFromBasket,addOrRemoveProduct,}}>
         {props.children}</UserContext.Provider>;
 };

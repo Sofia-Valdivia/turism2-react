@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Badge} from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import "./main.css";
 import { UserContext } from "../../Context/UserContext";
@@ -28,11 +28,11 @@ const Main = () => {
               <a href="/">Tours</a>
             </li>
              <li className="li-basket" >  
-            <a href="/">Basket 
+            <Link to="/main/basket">Basket 
             <Badge badgeContent={basket ? basket.length : 0} color="primary">
              <ShoppingCartRoundedIcon/> 
             </Badge>
-            </a>
+            </Link>
             </li>
           </ul>
         </div>

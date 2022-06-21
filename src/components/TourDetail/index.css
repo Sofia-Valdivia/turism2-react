@@ -4,9 +4,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    text-transform: capitalize !important;    
     
 }
+
 .button-basket{
   text-transform: capitalize !important; 
   display: flex ;
